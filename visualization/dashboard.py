@@ -1468,7 +1468,7 @@ with tab_performance:
     with p5:
         st.metric(
             "P95 Tick Latency",
-            f"{summary['p95_latency_ms']:.3f} ms",
+            f"{summary.get('p95_latency_ms', 0.0):.3f} ms",
         )
 
 
