@@ -1431,7 +1431,7 @@ with tab_performance:
     )
 
 
-    p1, p2, p3, p4 = st.columns(4)
+    p1, p2, p3, p4, p5 = st.columns(5)
 
 
     with p1:
@@ -1463,6 +1463,12 @@ with tab_performance:
         st.metric(
             "Deadlocks",
             summary["deadlocks"],
+        )
+
+    with p5:
+        st.metric(
+            "P95 Tick Latency",
+            f"{summary['p95_latency_ms']:.3f} ms",
         )
 
 
@@ -1699,7 +1705,7 @@ with tab_architecture:
             "energy, task and communication state.",
         ),
         (
-            "02 · TASK BIDDING",
+            "02 · ADAPTIVE TASK BIDDING",
             "Agents calculate local task cost using "
             "distance, urgency, energy and capability.",
         ),
@@ -1709,12 +1715,12 @@ with tab_architecture:
             "without a central coordinator.",
         ),
         (
-            "04 · TRAJECTORY PLANNING",
+            "04 · RESERVATION-AWARE PLANNING",
             "A* generates grid trajectories toward "
             "assigned emergency incidents.",
         ),
         (
-            "05 · DYNAMIC ADAPTATION",
+            "05 · SWARM ADAPTATION",
             "Environmental perturbations trigger "
             "trajectory recalculation.",
         ),
